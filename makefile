@@ -1,20 +1,20 @@
-# Makefile
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 
-SRCS = src/main.cpp src/Person.cpp src/Student.cpp src/Professor.cpp src/Course.cpp src/Department.cpp
-OBJS = $(SRCS:.cpp=.o)
-EXEC = bin/university_system
+SRC = src/main.cpp src/Person.cpp src/Student.cpp src/Professor.cpp src/Course.cpp src/Department.cpp
+OBJ = $(SRC:.cpp=.o)
 
-all: $(EXEC)
+TARGET = university_system
 
-$(EXEC): $(OBJS)
-    $(CXX) $(CXXFLAGS) -o $@ $^
+$(TARGET): $(OBJ)
+	$(CXX) $(OBJ) -o $(TARGET)
 
 %.o: %.cpp
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-    rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJ) $(TARGET)
 
-.PHONY: all clean
+
+
+
